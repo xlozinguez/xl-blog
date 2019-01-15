@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[X@L.com]]></title><description><![CDATA[A journey into all things web tech.]]></description><link>https://xavier.lozinguez.com/</link><generator>RSS for Node</generator><lastBuildDate>Tue, 15 Jan 2019 23:43:00 GMT</lastBuildDate><item><title><![CDATA[Getting started with Gatsby]]></title><description><![CDATA[These are some notes in case you are interested in getting your site up and running on  Github Pages  using  Gatsby . Gatsby? Gatsby…]]></description><link>https://xavier.lozinguez.com//2018-01-28-getting-started-with-gatsby/</link><guid isPermaLink="false">https://xavier.lozinguez.com//2018-01-28-getting-started-with-gatsby/</guid><pubDate>Sun, 28 Jan 2018 03:15:59 GMT</pubDate><content:encoded>&lt;p&gt;These are some notes in case you are interested in getting your site up and running on &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages&lt;/a&gt; using &lt;a href=&quot;https://www.gatsbyjs.org/&quot;&gt;Gatsby&lt;/a&gt;.&lt;/p&gt;
+&lt;h1&gt;Gatsby?&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.gatsbyjs.org/&quot;&gt;Gatsby&lt;/a&gt; combines the power of &lt;a href=&quot;https://reactjs.org&quot;&gt;React&lt;/a&gt;, &lt;a href=&quot;http://graphql.org/&quot;&gt;GraphQL&lt;/a&gt; and &lt;a href=&quot;https://webpack.js.org/&quot;&gt;Webpack&lt;/a&gt; to make publishing your own static PWA a breeze. Combine it with the generous and robust static site host (&lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages&lt;/a&gt;, &lt;a href=&quot;https://www.netlify.com/&quot;&gt;Netlify&lt;/a&gt;…) and you can deploy your site in a few minutes with minimal associated cost.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The origin of this blog post comes from the great &lt;a href=&quot;https://egghead.io/courses/build-a-blog-with-react-and-markdown-using-gatsby&quot;&gt;Egghead.io tutorial by Taylor Bell&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can also find great resources in the &lt;a href=&quot;https://www.gatsbyjs.org/docs/&quot;&gt;Gatsby’s documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1&gt;The Gameplan&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Install Gatsby &lt;code class=&quot;language-text&quot;&gt;npm install --global gatsby-cli&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a new site:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;console&quot;&gt;&lt;pre class=&quot;language-console&quot;&gt;&lt;code class=&quot;language-console&quot;&gt;gatsby new gatsby-site
+cd gatsby-site
+gatsby develop&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Gatsby will start a hot-reloading development environment accessible at &lt;code class=&quot;language-text&quot;&gt;localhost:8000&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you want to use markdown as an editor system, install the following plugins:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;console&quot;&gt;&lt;pre class=&quot;language-console&quot;&gt;&lt;code class=&quot;language-console&quot;&gt;yarn add gatsby-source-filesystem --save
+yarn add gatsby-tranformer-remark --save&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Then configure the plugins in the &lt;code class=&quot;language-text&quot;&gt;gatsby-config.js&lt;/code&gt; file:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;plugins&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+  &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`gatsby-plugin-react-helmet`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`gatsby-transformer-remark`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    resolve&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`gatsby-source-filesystem`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    options&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      name&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`src`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;__dirname&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;/src`&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This will set &lt;code class=&quot;language-text&quot;&gt;src&lt;/code&gt; as the root path for your application files. &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In &lt;code class=&quot;language-text&quot;&gt;src/pages&lt;/code&gt; you can place your folders in which you can add your &lt;code class=&quot;language-text&quot;&gt;index.md&lt;/code&gt; markdown files. You can name each folder with &lt;code class=&quot;language-text&quot;&gt;YEAR-MONTH-DAY-SLUG&lt;/code&gt;. At the top of the&lt;code class=&quot;language-text&quot;&gt;index.md&lt;/code&gt; file of each pages folder, add a snippet as such:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;markdown&quot;&gt;&lt;pre class=&quot;language-markdown&quot;&gt;&lt;code class=&quot;language-markdown&quot;&gt;&lt;span class=&quot;token hr punctuation&quot;&gt;---&lt;/span&gt;
+path: &quot;/YEAR-MONTH-DAY-SLUG&quot;
+date: &quot;TIMESTAMP&quot;
+title: &quot;Lorem ipsum&quot;
+&lt;span class=&quot;token title important&quot;&gt;excerpt: &quot;Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&quot;
+&lt;span class=&quot;token punctuation&quot;&gt;---&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;in &lt;code class=&quot;language-text&quot;&gt;src/page/index.js&lt;/code&gt;, create a proper GraphQL query to provide access to the collection of pages within the &lt;code class=&quot;language-text&quot;&gt;src/pages&lt;/code&gt; folder. The query in our case would look like:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;IndexPage&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; data &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; edges&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; posts &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;allMarkdownRemark&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+      &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;h1&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;Hi people&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; check my stuff out&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;h1&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; 
+        posts&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; node&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; post &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; frontmatter &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; post&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+            &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;div key&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; frontmatter&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;date &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+              &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;h2&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+                &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;Link to&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; frontmatter&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;path &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+                  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; frontmatter&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;title &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+                &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;Link&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+              &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;h2&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+              &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+                &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;b&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; frontmatter&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;date &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;b&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; frontmatter&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;excerpt &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+              &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;p&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+            &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;div&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;div&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; query &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; graphql&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`
+  query Indexquery {
+    allMarkdownRemark {
+      totalCount
+      edges {
+        node {
+          id,
+          frontmatter {
+            title
+            date(formatString: &quot;MMM DD, &apos;YY&quot;)
+            path
+            excerpt
+          }
+        }
+      }
+    }
+  }
+`&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Finally, create your post template to display your content. In &lt;code class=&quot;language-text&quot;&gt;templates/blog-post.js&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; React &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;react&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; Link &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;gatsby-link&apos;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; Helmet &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;react-helmet&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;Template&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; location&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; markdownRemark&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; post &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; data
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; frontmatter&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; html &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; post
+
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+      &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;Helmet title&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;title&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt; - My Blog`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+
+      &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+        &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;h1&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;title&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;h1&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+        &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;h3&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;date&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;h3&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+
+        &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;div dangerouslySetInnerHTML&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;__html&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; html&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+      &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;div&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;div&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; pageQuery &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; graphql&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`
+query BlogPostByPath($path: String!) {
+  markdownRemark(frontmatter: { path: { eq: $path } }) {
+    html 
+    frontmatter {
+      title
+      date(formatString: &quot;MMMM, DD, YYYY&quot;)
+      path
+      tags
+      excerpt
+    }
+  }
+}
+`&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; Template&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Hook your template and your graphql query. In &lt;code class=&quot;language-text&quot;&gt;gatsby-node.js&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; path &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;path&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+exports&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;createPages&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; boundActionCreators&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; graphql &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; createPage &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; boundActionCreators&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; blogPostTemplate &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; path&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;src/templates/blog-post.js&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;graphql&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`{
+      allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___date] }) {
+        edges {
+          node {
+            html
+            id
+            frontmatter {
+              date
+              path
+              title
+              excerpt
+              tags
+            }
+          }
+        }
+      }
+    }`&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;result &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;result&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;errors&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; Promise&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;result&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;errors&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; posts &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; result&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;allMarkdownRemark&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;edges&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`There are &lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;posts&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt; post(s)`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    posts&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;node&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; index&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token function&quot;&gt;createPage&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        path&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; node&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;frontmatter&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;path&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        component&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; blogPostTemplate&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        context&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          prev&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; index &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; posts&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;index &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;node&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+          next&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; index &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;posts&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; posts&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;index &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;node
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Deploy your site to Github:&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install &lt;code class=&quot;language-text&quot;&gt;gh-pages&lt;/code&gt;: &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;console&quot;&gt;&lt;pre class=&quot;language-console&quot;&gt;&lt;code class=&quot;language-console&quot;&gt;yarn add --dev gh-pages&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a new project on github and set up the &lt;code class=&quot;language-text&quot;&gt;pathPrefix&lt;/code&gt; of the &lt;code class=&quot;language-text&quot;&gt;gatsby-config&lt;/code&gt; file accordingly:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;module.exports = &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+pathPrefix&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; `/my-github-project-name`&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Hook the &lt;code class=&quot;language-text&quot;&gt;deploy&lt;/code&gt; command in your npm &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt; file:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;...
+&lt;span class=&quot;token property&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+...
+&lt;span class=&quot;token property&quot;&gt;&quot;deploy&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;gatsby build --prefix-paths &amp;amp;&amp;amp; gh-pages -d public&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+...
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;Other Gatsby commands:&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;gatsby build&lt;/code&gt; — Gatsby will perform an optimized production build for your site generating static HTML and per-route JavaScript code bundles.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;gatsby serve&lt;/code&gt; — Gatsby starts a local HTML server for testing your built site.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Lots of great resources in the Gatsby &lt;a href=&quot;https://www.gatsbyjs.org/docs&quot;&gt;docs&lt;/a&gt; and &lt;a href=&quot;https://www.gatsbyjs.org/docs/awesome-gatsby/&quot;&gt;community pages&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[No Heroes]]></title><description><![CDATA[Have you ever been put in a situation where, facing choices, you make a call, and it ends up blowing up in your hand?
+Not only you don’t get…]]></description><link>https://xavier.lozinguez.com//2017-12-01-no-heroes/</link><guid isPermaLink="false">https://xavier.lozinguez.com//2017-12-01-no-heroes/</guid><pubDate>Fri, 01 Dec 2017 03:15:59 GMT</pubDate><content:encoded>&lt;p&gt;Have you ever been put in a situation where, facing choices, you make a call, and it ends up blowing up in your hand?
+Not only you don’t get the expected result, but the backlash is even worse, ensuing in a ripple effect of negative outcomes.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;That does not feel good, does it?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I had a great opportunity and was to complete a demo that I would have to lead a presentation on in front of deciders. At that time, however, I was already deep down into a task and felt like I needed to finish it first before shifting my focus.&lt;/p&gt;
+&lt;p&gt;Once done with it, I moved onto the assignment and realized that I overlooked some details in the requirements. No big deal, I was still confident I could complete the demo even though the deadline was soon approaching.
+However, as time was going by, I started realizing that I needed to make some trade-offs to get things ready and send the demo before the deadline. As it turned out, while I was dead set on showcasing a great demo, I forewent submitting it until the day of the presentation.&lt;/p&gt;
+&lt;p&gt;Hustling extra hours and catching little to no sleep to pull a hero move ended up being a complete disaster.
+During the presentation, my brain got so cloudy that I couldn’t articulate my design choices (which I was quite satisfied with) nor comprehend the most simple questions from the audience.
+The whole experience sucked. I realized that, no matter how skilled I could have been, I wouldn’t have been able to pull myself out the whole I had dug myself in.&lt;/p&gt;
+&lt;p&gt;Worse, the next day, after finally catching some much-needed sleep, I woke up with all the answers from the presentation. What a raging feeling to realize how wrong the answers you gave the day before were.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;In a world where the hustle mentally is put on the pedestal as the way to success, restlessness will inevitably catch up to you and lead to spectacular adverse effects.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The things I have learned from my experience might sound cliché to some but will always guarantee the outcome you seek:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Set the expectations by validating your understanding of the requirements and confirming any assumptions you are making as early as possible (even before the task is to be started),&lt;/li&gt;
+&lt;li&gt;If requirements changes or if you discover something: take pause and reassess your timeline,&lt;/li&gt;
+&lt;li&gt;If the timeline needs to change, communicate with other parties as early as possible and provide clear context as to why the changes are required,&lt;/li&gt;
+&lt;li&gt;Provide recommendations (cutting features, pushing the deadline) and state the new timeline to reset the expectations.&lt;/li&gt;
+&lt;li&gt;Repeat.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Following this simple feedback loop should help avoid the negative backlash that blowing a deadline will cause, ensuring you to meet expectations every single time.&lt;/p&gt;
+&lt;p&gt;Happy face!&lt;/p&gt;
+&lt;p&gt;PS: This article was originally published on my &lt;a href=&quot;https://medium.com/@xlozinguez/no-heroes-18e02ae4f1b8&quot;&gt;Medium&lt;/a&gt; &lt;a href=&quot;https://medium.com/@xlozinguez&quot;&gt;profile&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[So, today is my last day @ Yieldmo]]></title><description><![CDATA[Today, I bid farewell to my fellow Yieldmates. It is bittersweet since this group is composed of a talented bunch which I am sure will…]]></description><link>https://xavier.lozinguez.com//2017-11-07-last-day-at-yieldmo/</link><guid isPermaLink="false">https://xavier.lozinguez.com//2017-11-07-last-day-at-yieldmo/</guid><pubDate>Tue, 07 Nov 2017 03:15:59 GMT</pubDate><content:encoded>&lt;p&gt;Today, I bid farewell to my fellow Yieldmates.&lt;/p&gt;
+&lt;p&gt;It is bittersweet since this group is composed of a talented bunch which I am sure will achieve their vision to make mobile advertising more engaging and less invasive.&lt;/p&gt;
+&lt;p&gt;Previously, over my two years spent at &lt;a href=&quot;http://www.axial.net&quot;&gt;Axial&lt;/a&gt;, I grew from a front-end engineer shipping their first mobile app (thanks &lt;a href=&quot;http://www.ionic.io&quot;&gt;Ionic&lt;/a&gt;) to a technical team lead. It had been an invaluable opportunity for me to grow personally by helping other engineers get a better sense of their career path, and professionally by tackling bigger projects representing higher stakes. Unfortunately, I failed to contain my passion and eventually burned out.&lt;/p&gt;
+&lt;p&gt;Immediately after, I figured I did not want to handle any more interpersonal responsibilities (aka I did not want to manage people anymore) and focus mainly on growing my technical shops (hello Impostor Syndrome). When I interviewed at Yieldmo, I was amazed of the degree of challenge and it sounded like a great way for me to figure out what I was made of.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.yieldmo.com/&quot;&gt;Yieldmo&lt;/a&gt; is a great company. The co-founders have a proven track record of bringing their concept to a viable market fit and pushing the vision they have to reality and solve the problem they set themselves to. It is a no-nonsense approach and it is very clear that everyone aligns with that vision. However, like many startups, Yieldmo has had its share of pivots and employee turnover at various stages of growth.&lt;/p&gt;
+&lt;p&gt;When I joined, two teams that were working on separate part of the app had just been unified and the engineers had to get used to work alongside one another. It is not an easy feat by any stretch of imagination as people have been provided a specific work environment from the time they got hired (sometime going back a few years back), get used to that certain way of working and have developed habits to support their daily schedule.&lt;/p&gt;
+&lt;p&gt;After a few weeks, I realized the chasm that was present within the team and, even though this was not my primary assignment, I probed a little to try to understand how the engineers were working with one another. After all, given my title of Staff Engineer, I wanted to make sure the ideas I was bringing to the table were:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;making sense&lt;/strong&gt;: how could I pretend to understand the whole stack and architecture after just a few days on the job when others had been dealing with it for years? I needed confirmation of the proposal coming from my observation and gut feeling&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;understood&lt;/strong&gt;: it was important to me to fill up any knowledge gap I would sense within the team&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;valid in the current context&lt;/strong&gt;: sometimes you can be right before everyone else, in which case you are wrong. That is a lesson I am still in the process of learning and a key item I believe every software engineer has to be confronted and need to develop tools around.
+Identifying when a solution which seems the way to go will not yield the expected results in the current context. In which case, you need to be able to provide the list of prerequisites for such an approach to be successful.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In hindsight, and thanks to the invaluable ability for my management to discuss these openly during my exit interviews, I realized the following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;I have not been able to correctly identify and communicate efficiently about those prerequisites&lt;/strong&gt;. Instead I embarked into my vision and started putting together the architecture that I believed would make sense for us to use.
+Even though I had taken the steps to outline my vision and others seemed to agree with me, I failed to recognize when I was hitting significant hurdles that would have otherwise had me reconsider my approach.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Titles can be a source of interpersonal problems&lt;/strong&gt;: On that end, coming in as a staff engineer, coworkers of “inferior” ranks expected me to know, or at least figure out, certain things I was not necessarily familiar with. At other times, I would not necessarily get the feedback I was seeking since, from their understanding, I was meant to know more than them.
+This is one point I have been struggling with the most: How do you communicate to others that, despite whatever title you and they hold, you are seeking their feedback and their wisdom as they have both more knowledge of the current stack and probably have experienced many of the pains you will eventually encounter?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sometimes, even though you take it upon yourself to communicate clearly, you can fail to be clear&lt;/strong&gt;. As a French native and someone who struggle to articulate my words, I can use certain figure of speech and expressions that will deter others from understanding what I am trying to say.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;All in all, these 3 items put together can lead to a downward spiral. The more you struggle bringing your vision to life, the less confident about it you become. With little to no feedback and the inability to &lt;em&gt;clearly&lt;/em&gt; communicate that you need help, you end up silo’ed and left to crawl out of the hole you dug yourself into.&lt;/p&gt;
+&lt;p&gt;I wish I had been able to see the bigger picture and push harder for help. As a broad thinker and someone who has no problem facing the 500 pound gorilla in the room, I tried to address these symptoms in 1–1 meetings. However, given the relatively young age of the newly constituted team and my poor track record, I had very little leverage to fix what was already broken and parting ways was the right thing to do.&lt;/p&gt;
+&lt;p&gt;To conclude (thanks if you have read all the way to this point), I realize that sometimes you will not “gel” with the team. Many interpersonal factors can get in the way and there will be very little of it you can control. Yieldmo is a great place to work with amazing talent and a great mission. However, timing is always of the essence and there will be occasions when it plays against you like has been the case for me.&lt;/p&gt;
+&lt;p&gt;But… On to new adventures! I will take some time off as to not repeat the same mistakes I have made in the past and jump too quickly into the next shiny great thing. I will take the time to build my foundations back up (thanks to platforms such as &lt;a href=&quot;http://www.frontendmasters.com&quot;&gt;Frontend Masters&lt;/a&gt; and &lt;a href=&quot;http://www.egghead.io&quot;&gt;Egghead&lt;/a&gt; to name but two) and rebuild confidence in my technical abilities. I will also further my expertise in RxJS and get into the habit of partaking in the OSS effort.&lt;/p&gt;
+&lt;p&gt;Finally, I am going to work as an independent consultant whilst also working on various personal startup projects which I will share more about on here.&lt;/p&gt;
+&lt;p&gt;All the best Yieldmates!&lt;/p&gt;
+&lt;p&gt;PS: This article was originally published on my &lt;a href=&quot;https://medium.com/@xlozinguez/so-today-is-my-last-day-yieldmo-1f193b32d28c&quot;&gt;Medium&lt;/a&gt; &lt;a href=&quot;https://medium.com/@xlozinguez&quot;&gt;profile&lt;/a&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
