@@ -16,11 +16,11 @@ Over the years, I learned a lot about myself and what my work style is. Hopefull
 
 ## Staying Connected and Aligned
 
-I am a straight shooter. I probably inherited this bluntness from my ancestors as French people seem to possess the ability to be (hyper) critical and to call things out the way they see them. 
+I am a straight shooter. I probably inherited this bluntness from my ancestors as French people seem to possess the ability to be (hyper) critical and to call things out the way they see them.
 This radical honesty is critical to maintaining my integrity and is never intended to be interpreted as a personal attack. Acknowledging our mistakes is the first steps to understand the causes and learn from them so we may avoid running into that obstacle again.
 
-I expect the same bluntness from others. In the book [Extreme Ownership](https://www.amazon.com/Extreme-Ownership-U-S-Navy-SEALs-ebook/dp/B00VE4Y0Z2), [Jocko Willink](https://www.youtube.com/watch?v=ljqra3BcqWM) explains that, despite our best assets, we are all humans and prone to failure. 
-Great strengths come along with blindsides that can hinder performances, and enabling your collaborators to keep you accountable allow them to be on the lookout for the errors you will eventually commit. 
+I expect the same bluntness from others. In the book [Extreme Ownership](https://www.amazon.com/Extreme-Ownership-U-S-Navy-SEALs-ebook/dp/B00VE4Y0Z2), [Jocko Willink](https://www.youtube.com/watch?v=ljqra3BcqWM) explains that, despite our best assets, we are all humans and prone to failure.
+Great strengths come along with blindsides that can hinder performances, and enabling your collaborators to keep you accountable allow them to be on the lookout for the errors you will eventually commit.
 
 For these reasons, I welcome people challenging my opinions as this is the best way we can quickly get to compare ideas and come up with a better plan. *I do not care how things get done as much as I care about things getting done.*
 
@@ -81,7 +81,7 @@ However, here are a few things I would like to encourage you to think about when
 
 ## How I Work
 
-### As an individual contributor:
+### As an individual contributor
 
 I tend to be very intense and very focused when I am working. I ask many questions until I am sure I understand things entirely regardless of how it might make me look. I found out that when I do not complete that due diligence and start assuming things, it leads to poor decision making that have adverse side effects that we can avoid.
 
@@ -89,7 +89,7 @@ On the other hand, this tends to exacerbate some negative traits of mine and shu
 
 Do not hesitate to challenge me! Even when I am passionate, I am always ready to reconsider my point of view by a sound counter-argument.
 
-### As a manager:
+### As a manager
 
 Some of the points mentioned above still hold in this context. The way I intend to work with the group is by making sure we follow the "Listen, Challenge, Commit" rule:
 

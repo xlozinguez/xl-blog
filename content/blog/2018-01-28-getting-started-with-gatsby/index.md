@@ -16,31 +16,30 @@ These are some notes in case you are interested in getting your site up and runn
 >
 > You can also find great resources in the [Gatsby's documentation](https://www.gatsbyjs.org/docs/).
 
-
 ## The Gameplan
 
 1. Install Gatsby `npm install --global gatsby-cli`
 
 2. Create a new site:
 
-    ```console
+```console
     gatsby new gatsby-site
     cd gatsby-site
     gatsby develop
-    ```
+```
 
-    Gatsby will start a hot-reloading development environment accessible at `localhost:8000`
+Gatsby will start a hot-reloading development environment accessible at `localhost:8000`
 
 3. If you want to use markdown as an editor system, install the following plugins:
 
-    ```console
+```console
     yarn add gatsby-source-filesystem --save
     yarn add gatsby-tranformer-remark --save
-    ```
+```
 
-    Then configure the plugins in the `gatsby-config.js` file:
+Then configure the plugins in the `gatsby-config.js` file:
 
-    ```javascript
+```javascript
     plugins: [
       `gatsby-plugin-react-helmet`,
       `gatsby-transformer-remark`,
@@ -52,24 +51,24 @@ These are some notes in case you are interested in getting your site up and runn
         }
       }
     ]
-    ```
+```
 
-    This will set `src` as the root path for your application files. 
+This will set `src` as the root path for your application files. 
 
 4. In `src/pages` you can place your folders in which you can add your `index.md` markdown files. You can name each folder with `YEAR-MONTH-DAY-SLUG`. At the top of the`index.md` file of each pages folder, add a snippet as such:
 
-    ```markdown
+```markdown
     ---
     path: "/YEAR-MONTH-DAY-SLUG"
     date: "TIMESTAMP"
     title: "Lorem ipsum"
     excerpt: "Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     ---
-    ```
+```
 
 5. in `src/page/index.js`, create a proper GraphQL query to provide access to the collection of pages within the `src/pages` folder. The query in our case would look like:
 
-    ```javascript
+```javascript
       const IndexPage = ({ data }) => {
       const { edges: posts } = data.allMarkdownRemark;
       return (
@@ -114,11 +113,11 @@ These are some notes in case you are interested in getting your site up and runn
         }
       }
     `
-    ```
+```
 
 6. Finally, create your post template to display your content. In `templates/blog-post.js`:
 
-    ```javascript
+```javascript
     import React from 'react'
     import Link from 'gatsby-link'
     import Helmet from 'react-helmet'
@@ -126,7 +125,7 @@ These are some notes in case you are interested in getting your site up and runn
     const Template = ({data, location}) => {
       const { markdownRemark: post } = data
       const { frontmatter, html } = post
-    
+
       return (
         <div>
           <Helmet title={`${title} - My Blog`} />
@@ -157,10 +156,11 @@ These are some notes in case you are interested in getting your site up and runn
     `
 
     export default Template
-    ```
+```
 
 7. Hook your template and your graphql query. In `gatsby-node.js`:
-    ```javascript
+
+```javascript
     const path = require('path');
 
     exports.createPages = ({ boundActionCreators, graphql }) => {
@@ -206,20 +206,26 @@ These are some notes in case you are interested in getting your site up and runn
           })
         });
       })
-      ```
+```
 
 8. Deploy your site to Github:
-  * Install `gh-pages`: 
+
+* Install `gh-pages`:
+
   ```console
   yarn add --dev gh-pages
   ```
-  * Create a new project on github and set up the `pathPrefix` of the `gatsby-config` file accordingly:
+
+* Create a new project on github and set up the `pathPrefix` of the `gatsby-config` file accordingly:
+
   ```json
   module.exports = {
     pathPrefix: `/my-github-project-name`,
     ...
   ```
-  * Hook the `deploy` command in your npm `package.json` file:
+
+* Hook the `deploy` command in your npm `package.json` file:
+
   ```json
   ...
   "scripts": {
@@ -230,10 +236,9 @@ These are some notes in case you are interested in getting your site up and runn
   ...
   ```
 
+## Other Gatsby commands
 
-# Other Gatsby commands:
-  * `gatsby build` — Gatsby will perform an optimized production build for your site generating static HTML and per-route JavaScript code bundles.
-  * `gatsby serve` — Gatsby starts a local HTML server for testing your built site.
+* `gatsby build` — Gatsby will perform an optimized production build for your site generating static HTML and per-route JavaScript code bundles.
+* `gatsby serve` — Gatsby starts a local HTML server for testing your built site.
 
 > Lots of great resources in the Gatsby [docs](https://www.gatsbyjs.org/docs) and [community pages](https://www.gatsbyjs.org/docs/awesome-gatsby/).
-
