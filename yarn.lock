@@ -11620,6 +11620,11 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+typeface-courgette@^0.0.54:
+  version "0.0.54"
+  resolved "http://artifacts.notjet.net/api/npm/npm/typeface-courgette/-/typeface-courgette-0.0.54.tgz#3185dec4f3486938b05c2e07b845c7908d8ee474"
+  integrity sha1-MYXexPNIaTiwXC4HuEXHkI2O5HQ=
+
 typeface-merriweather@0.0.43:
   version "0.0.43"
   resolved "https://registry.yarnpkg.com/typeface-merriweather/-/typeface-merriweather-0.0.43.tgz#b615f7aaf5f826c0cf1da7473af7ef28c7c44428"

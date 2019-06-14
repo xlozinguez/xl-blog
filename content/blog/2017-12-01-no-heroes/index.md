@@ -25,6 +25,7 @@ Worse, the next day, after finally catching some much-needed sleep, I woke up wi
 **In a world where the hustle mentally is put on the pedestal as the way to success, restlessness will inevitably catch up to you and lead to spectacular adverse effects.**
 
 The things I have learned from my experience might sound cliché to some but will always guarantee the outcome you seek:
+
 - Set the expectations by validating your understanding of the requirements and confirming any assumptions you are making as early as possible (even before the task is to be started),
 - If requirements changes or if you discover something: take pause and reassess your timeline,
 - If the timeline needs to change, communicate with other parties as early as possible and provide clear context as to why the changes are required,

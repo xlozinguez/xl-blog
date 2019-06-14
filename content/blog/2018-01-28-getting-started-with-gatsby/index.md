@@ -8,7 +8,7 @@ excerpt: "Getting your site up to speed using Gatsby."
 
 These are some notes in case you are interested in getting your site up and running on [Github Pages](https://pages.github.com/) using [Gatsby](https://www.gatsbyjs.org/).
 
-# Gatsby?
+## Gatsby?
 
 [Gatsby](https://www.gatsbyjs.org/) combines the power of [React](https://reactjs.org), [GraphQL](http://graphql.org/) and [Webpack](https://webpack.js.org/) to make publishing your own static PWA a breeze. Combine it with the generous and robust static site host ([Github Pages](https://pages.github.com/), [Netlify](https://www.netlify.com/)...) and you can deploy your site in a few minutes with minimal associated cost.
 
@@ -17,7 +17,7 @@ These are some notes in case you are interested in getting your site up and runn
 > You can also find great resources in the [Gatsby's documentation](https://www.gatsbyjs.org/docs/).
 
 
-# The Gameplan
+## The Gameplan
 
 1. Install Gatsby `npm install --global gatsby-cli`
 

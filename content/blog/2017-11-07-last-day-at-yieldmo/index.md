@@ -25,6 +25,7 @@ After a few weeks, I realized the chasm that was present within the team and, ev
 Identifying when a solution which seems the way to go will not yield the expected results in the current context. In which case, you need to be able to provide the list of prerequisites for such an approach to be successful.
 
 In hindsight, and thanks to the invaluable ability for my management to discuss these openly during my exit interviews, I realized the following:
+
 1. **I have not been able to correctly identify and communicate efficiently about those prerequisites**. Instead I embarked into my vision and started putting together the architecture that I believed would make sense for us to use. 
 Even though I had taken the steps to outline my vision and others seemed to agree with me, I failed to recognize when I was hitting significant hurdles that would have otherwise had me reconsider my approach.
 2. **Titles can be a source of interpersonal problems**: On that end, coming in as a staff engineer, coworkers of “inferior” ranks expected me to know, or at least figure out, certain things I was not necessarily familiar with. At other times, I would not necessarily get the feedback I was seeking since, from their understanding, I was meant to know more than them.
